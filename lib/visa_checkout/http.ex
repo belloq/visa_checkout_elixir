@@ -22,7 +22,7 @@ defmodule VisaCheckout.Http do
 
   def process_response_body(body) do
     if String.length(body) > 0 do
-      Poison.decode!(body, [keys: :atoms])
+      Poison.decode!(body)
     else
       %{}
     end

@@ -71,8 +71,8 @@ defmodule VisaCheckout do
   defp handle_response({:ok, response}) do
     case response.status_code do
       200 ->
-        if is_map(response.body) && Map.has_key?(response.body, :encKey) && Map.has_key?(response.body, :encPaymentData) do
-          decrypted_payload = Util.decrypt_payload(response.body.encKey, response.body.encPaymentData)
+        if is_map(response.body) && Map.has_key?(response.body, "encKey") && Map.has_key?(response.body, "encPaymentData") do
+          decrypted_payload = Util.decrypt_payload(response.body["encKey"], response.body["encPaymentData"])
           {:ok, decrypted_payload}
         else
           {:ok, response.body}
