@@ -23,10 +23,9 @@ defmodule VisaCheckoutElixir.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:httpoison, "~> 0.13"},
+      {:httpoison, "~> 1.0"},
       {:poison, "~> 3.1"},
       {:ex_doc, "~> 0.14", only: :dev},
-      {:exvcr, "~> 0.9", only: :test}
     ]
   end
 
