@@ -17,12 +17,12 @@ defmodule VisaCheckout.Http do
   end
 
   def process_request_body(body) do
-    Poison.encode!(body)
+    Jason.encode!(body)
   end
 
   def process_response_body(body) do
     if String.length(body) > 0 do
-      Poison.decode!(body)
+      Jason.decode!(body)
     else
       %{}
     end

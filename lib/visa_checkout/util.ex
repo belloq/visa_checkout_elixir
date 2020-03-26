@@ -1,6 +1,4 @@
 defmodule VisaCheckout.Util do
-  alias __MODULE__
-
   def api_key do
     Application.get_env(:visa_checkout_elixir, :api_key, System.get_env("VISA_CHECKOUT_API_KEY"))
   end
@@ -10,9 +8,9 @@ defmodule VisaCheckout.Util do
   end
 
   def decrypt_payload(wrapped_key, payload) do
-    {:ok, unwrapped_key} = decrypt(Util.secret(), wrapped_key)
+    {:ok, unwrapped_key} = decrypt(secret(), wrapped_key)
     {:ok, decrypted_payload} = decrypt(unwrapped_key, payload)
-    Poison.decode!(decrypted_payload, [keys: :atoms])
+    Jason.decode!(decrypted_payload, keys: :atoms)
   end
 
   def decrypt(key, encoded_data) do

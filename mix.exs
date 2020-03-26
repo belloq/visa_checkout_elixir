@@ -24,7 +24,7 @@ defmodule VisaCheckoutElixir.Mixfile do
   defp deps do
     [
       {:httpoison, "~> 1.0"},
-      {:poison, "~> 3.1"},
+      {:jason, "~> 1.2"},
       {:ex_doc, "~> 0.14", only: :dev},
     ]
   end

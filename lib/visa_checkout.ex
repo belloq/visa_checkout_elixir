@@ -56,7 +56,7 @@ defmodule VisaCheckout do
       if is_nil(params) do
         ""
       else
-        Poison.encode!(params)
+        Jason.encode!(params)
       end
 
     token =
